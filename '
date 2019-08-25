@@ -1,0 +1,21 @@
+#include "httplib.h"
+
+using namespace httplib;
+
+// 文件下载
+void Download(const Request& req, Response& res){
+}
+
+int main(){
+
+	// 服务器对象
+	Server _ser;
+
+	// 响应文件下载
+	_ser.Get("/filelist/(.*)", Download);
+
+	// 监听
+	_ser.listen("0.0.0.0", 9999);
+
+	return 0;
+}
